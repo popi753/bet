@@ -1,0 +1,45 @@
+.card{
+
+    max-width: 200px;
+    max-height: 300px;
+    aspect-ratio: 2/3;
+    
+    background-color: black;
+    display: flex;
+    
+    flex: 1 1 0;
+    flex-flow: column wrap;
+    text-align: center;
+    justify-content: flex-start;
+    position: relative;
+
+}
+
+.card:hover>.card-logo{
+    filter: drop-shadow(2px 4px 50px blue);
+    cursor: pointer;
+}
+
+.card:hover>.card-name{
+    bottom: 15px;
+    opacity: 1;
+}
+
+
+.card *{
+    color: white;
+}
+
+.card-logo{
+    width: 90%;
+    margin: 25px auto;
+}
+
+.card-name{
+    transition: all 0.8s, transform 0.8s, opacity 0.5s;
+    position: absolute;
+    bottom: -40px;
+    opacity: 0;
+    right: 50%;
+    transform: translateX(50%);
+}

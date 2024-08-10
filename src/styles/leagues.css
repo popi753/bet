@@ -1,0 +1,48 @@
+.league-header{
+    background-color: black;
+    border-radius: 15px;
+    border: 1px solid gray;
+    margin: 24px;
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.league-header-content{
+    display: flex;
+    flex-flow: row wrap;
+    border-bottom: 1px solid gray;
+}
+
+
+.league-header .card-logo{
+    width: auto;
+    height: 82%;
+    margin: 25px;
+}
+
+.league-header *{
+    color: white;
+}
+
+.league-header-links{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    margin: 0px;
+    border-top: 1px solid gray;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.league-header-link{
+    transition: all 0.3s ease;
+}
+
+.league-header-link:hover{
+    scale:1.1
+}
+
+.league-header-link *{
+    color: #1ee78d;
+    letter-spacing: 1px;
+}

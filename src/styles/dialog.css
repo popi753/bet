@@ -1,0 +1,13 @@
+dialog {
+  background: transparent;
+  border: 2px solid black;
+  backdrop-filter: blur(20px);
+  padding: 0;
+  z-index: 1000;
+}
+
+.dialog-container {
+  padding: 16px 25px;
+}
+
+

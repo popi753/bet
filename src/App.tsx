@@ -1,35 +1,71 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState, createContext} from 'react'
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+import { BrowserRouter } from 'react-router-dom'
 
-  return (
+
+import { onValidate}  from "./Components/fetch";
+
+
+
+import Index from "./Index"
+
+// type User = null | {
+//   name: string,
+// }
+
+
+function App() {
+
+ 
+
+  const token = window.localStorage.getItem("token")
+
+
+
+
+  
+  const [user, setUser] = useState<string>("")
+  const [balance, setBalance] = useState<Number>(0)
+  
+
+
+
+  if (!user && token){
+    // validate()
+
+  onValidate({token, setUser, setBalance})
+
+
+
+    console.log("fetched")
+
+  }
+
+
+  return(
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+<UserContext.Provider value={[user, setUser, balance,setBalance]}>
+  
+        <BrowserRouter>
+        
+            <Index/>
+            
+        </BrowserRouter>
+  
+</UserContext.Provider>
     </>
   )
+
 }
+
+type contextType = null | [
+  user: string,
+  setUser: React.Dispatch<React.SetStateAction<string>>,
+  balance: Number,
+  setBalance: React.Dispatch<React.SetStateAction<Number>>
+]
+
+export const UserContext = createContext<contextType>(null)
 
 export default App
