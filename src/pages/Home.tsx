@@ -3,24 +3,26 @@ import Card from "../Components/Card"
 import "../styles/home.css"
 import { Link } from "react-router-dom"
 
-import { onFetchLeagues}  from "../Components/fetch";
+import { onFetchLeague}  from "../Components/fetch";
 
 
 export default function Home() {
 
-    type typeLeagues = {
+    type league = {
         leagueId: number,
         name: string,
         logo: string
     }
     
     
-    const [leagues, setLeagues] = useState<typeLeagues[]>([]);
+    const [leagues, setLeagues] = useState<league[]>([]);
     
     useLayoutEffect(()=>{
-        onFetchLeagues({setLeagues})
+        onFetchLeague({
+            setLeagues:setLeagues,
+            id: 0,
+          })
     },[])
-
 
 
     
@@ -33,7 +35,7 @@ export default function Home() {
 
             <div className="card-container">
 
-                {leagues.map((league)=>{
+                {leagues.length ? leagues.map((league)=>{
                     return(
                         <Link to={`/leagues/${league.leagueId}`} key={league.leagueId} >
                             <Card
@@ -42,7 +44,7 @@ export default function Home() {
                             />
                         </Link>
                     )
-                })}
+                }): <>loading...</>}
                 
                 
                 

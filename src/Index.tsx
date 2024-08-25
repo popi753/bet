@@ -5,8 +5,6 @@ import './index.css'
 
 import Home from './pages/Home'
 import Leagues from './pages/Leagues';
-import Test from './pages/Test'
-import Test2 from './pages/Test2'
 import Missing from './pages/Missing';
 
 import Layout from './Components/Layout';
@@ -57,9 +55,7 @@ function Index() {
                     />}>
                         <Route index element={<Home />} />
                         <Route path="/leagues/:id/*" element={<Leagues/>} />
-                        <Route path="/test" element={<Test />} />
 
-                        <Route path="/test2" element={<Test2 />} />
 
                 </Route>
                 

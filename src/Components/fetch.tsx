@@ -166,50 +166,23 @@ export   async function onValidate({token, setUser, setBalance}:onValidateProps)
   }
   }
 
-type onFetchLeaguesProps = {
-    setLeagues : React.Dispatch<React.SetStateAction<any[]>>,
+
+
+type league = {
+  leagueId: number,
+  name: string,
+  logo: string
 }
 
-
-export async function onFetchLeagues({setLeagues}:onFetchLeaguesProps) {
-
-    try {
-        const response = await fetch(import.meta.env.VITE_LEAGUES,
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-        console.log(response.ok)
-        if (!response.ok) {
-          console.log("something went wrong")
-          throw("something went wrong")
-        }
-  
-        const result = await response.json()
-
-        setLeagues(result)
-        
-  
-    } catch (error) {
-      console.error("this is error:  "+error)
-      window.alert(error+"/try later")
-    }
-
+type onFetchLeagueProps = {
+  setLeagues : React.Dispatch<React.SetStateAction<league[]>>,
+  id : number
 }
 
-
-type onFetchStatsProps = {
-  id              : number | undefined,
-  setLeague       : React.Dispatch<React.SetStateAction<any>>,
-}
-
-export async function onFetchStats({id,setLeague}:onFetchStatsProps) {
+export async function onFetchLeague({setLeagues, id}:onFetchLeagueProps) {
 
   try {
-      const response = await fetch(import.meta.env.VITE_LEAGUES+"stats/"+id,
+      const response = await fetch(import.meta.env.VITE_LEAGUES+id,
         {
           method: "GET",
           headers: {
@@ -224,7 +197,7 @@ export async function onFetchStats({id,setLeague}:onFetchStatsProps) {
       }
 
       const result = await response.json()
-      setLeague(result)
+      setLeagues(result)
       
 
   } catch (error) {
@@ -233,3 +206,167 @@ export async function onFetchStats({id,setLeague}:onFetchStatsProps) {
   }
 
 }
+
+
+
+
+export async function onFetchLeagueStandings(league:number) {
+  
+
+  try {
+    const response = await fetch(
+      `https://v3.football.api-sports.io/standings?league=${league}&season=2024`,
+      {
+        method: "GET",
+        headers: {
+          "x-rapidapi-host": "v3.football.api-sports.io",
+          "x-rapidapi-key": import.meta.env.VITE_APIKEY,
+        },
+        redirect: "follow",
+      }
+    );
+    console.log(response.ok);
+    if (!response.ok) {
+      console.log("something went wrong");
+      throw "something went wrong";
+    }
+
+    const result = await response.json();
+    return(result.response[0].league.standings[0].map((item:any)=>{
+      return({
+        all   : item.all,
+        description : item.description,
+        form : item.form,
+        goalsDiff : item.goalsDiff,
+        points : item.points,
+        rank : item.rank,
+        team : item.team,
+      })
+    }));
+
+
+
+   
+  } catch (error) {
+    console.error("this is error:  ", error);
+    window.alert(error + "/try later");
+  }
+}
+
+
+export async function onFetchTeams(id:number) {
+
+  try {
+      const response = await fetch(import.meta.env.VITE_LEAGUES+"teams/"+id,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      console.log(response.ok)
+      if (!response.ok) {
+        console.log("something went wrong")
+        throw("something went wrong")
+      }
+
+      const result = await response.json()
+      return(result.teams)
+      
+
+  } catch (error) {
+    console.error("this is error:  "+error)
+    window.alert(error+"/try later")
+  }
+
+}
+
+
+
+export async function onSaveFantasyTeams(standings: { rank: number; id: number; name: string; logo: string; }[], id: number) {
+
+
+  try {
+      const response = await fetch(import.meta.env.VITE_AUTH + "register", {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json",
+          },
+          body: JSON.stringify({id,standings}),
+      });
+      console.log(response.ok)
+      if (!response.ok) {
+          console.log("something went wrong")
+          throw("something went wrong")
+      }
+      const result = await response.json();
+      console.log(result);
+
+  } catch (error) {
+      window.alert(error + "/try later");
+      console.warn("this is error:   " + error);
+  }
+
+}
+
+
+type onFetchStatsProps = {
+  league: any; 
+  endpoint: string;
+};
+
+
+  
+export async function onFetchStats({
+  league,
+  endpoint,
+}: onFetchStatsProps) {
+  
+
+  try {
+    const response = await fetch(
+      `https://v3.football.api-sports.io/players/${endpoint}?league=${league}&season=2024`,
+      {
+        method: "GET",
+        headers: {
+          "x-rapidapi-host": "v3.football.api-sports.io",
+          "x-rapidapi-key": import.meta.env.VITE_APIKEY,
+        },
+        redirect: "follow",
+      }
+    );
+    console.log(response.ok);
+    if (!response.ok) {
+      console.log("something went wrong");
+      throw "something went wrong";
+    }
+
+    const result = await response.json();
+    const arr = result.response.map((item: any)=>{
+      return {
+          id :item.player.id,
+          name :item.player.name,
+          photo :item.player.photo,
+          goals : item.statistics[0].goals.total,
+          assists : item.statistics[0].goals.assists,
+          lineups : item.statistics[0].games.lineups,
+          substitutes : item.statistics[0].substitutes.in,
+          minutes : item.statistics[0].games.minutes,
+
+
+      }
+    })
+
+    return(arr);
+
+
+
+   
+  } catch (error) {
+    console.error("this is error:  ", error);
+    window.alert(error + "/try later");
+  }
+}
+  
+

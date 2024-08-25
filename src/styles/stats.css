@@ -1,0 +1,24 @@
+.league-routes-links{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    margin: 0px;
+}
+
+.league-routes-link{
+    transition: all 0.3s ease;
+}
+
+.league-routes-link:hover{
+    scale:1.1
+}
+
+.league-routes-link *{
+    letter-spacing: 1px;
+}
+.clicked *{
+    text-decoration: underline ;
+    scale: 1.1;
+}
+
+

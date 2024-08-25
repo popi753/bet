@@ -1,0 +1,136 @@
+
+.topPlayers-container {
+    display: flex;
+    flex-flow: column wrap;
+  }
+  
+  
+  :root {
+      --background-color: #222;
+      --background-color-header: #121212;
+      --color-green: #01d099;
+      --color-red: #f64e60;
+      --color-yellow: #ffa800;
+    }
+  
+  
+  .topPlayers-table {
+    font-family: "Raleway",
+       sans-serif;;
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  
+  .topPlayers-row{
+      height: 3.5rem;
+      margin: 6px;
+      background-color: #222;
+      border-bottom: 2px solid #121212;
+  }
+  .topPlayers-row:first-child{
+        padding-top: 2px;
+        background-color: #121212;
+  }
+  
+  .topPlayers-row>td{
+      padding: 0px 2vw;
+      letter-spacing: 0;
+      line-height: 12px;
+      vertical-align: middle;
+      font-size: 1.5vw;
+  }
+  
+  .topPlayers-row:first-child>td:first-child{
+      border-top-left-radius: 15px;
+  }
+  
+  .topPlayers-row:first-child>td:last-child{
+      border-top-right-radius: 15px;
+  }
+  
+  .topPlayers-row:last-child{
+      border-bottom: 15px;
+  }
+  
+  .topPlayers-row:last-child>td:first-child{
+      border-bottom-left-radius: 15px;
+  }
+  
+  .topPlayers-row:last-child>td:last-child{
+      border-bottom-right-radius: 15px;
+  }
+  
+  .topPlayers-row td:first-child{
+    text-align: center;
+  }
+  
+  .topPlayers-row>.topPlayers-rank{
+    padding: 0px 0px 0px 2vw;
+    
+  }
+  
+  .topPlayer-name-td{
+    position: relative;
+  }
+
+
+  .topPlayer-name{
+    margin-right: 20px;
+    }
+  
+  .topPlayer-photo-tooltip{
+            visibility: hidden;
+            width: 105px;
+            background-color: #555;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.3s;
+            top: -200%;
+            left: 25%;
+            transform: translateX(-50%);
+  }  
+  
+  .topPlayer-photo-tooltip>img{
+    width:100px;
+    height: auto;
+  }
+
+
+
+.topPlayer-name:hover +.topPlayer-photo-tooltip{
+    visibility: visible;
+    opacity: 1;
+    color:red
+}
+
+
+
+
+ 
+
+
+  .wg_loader:after {
+    content: " ";
+    display: block;
+    width: 45px;
+    height: 45px;
+    margin: auto;
+    border-radius: 50%;
+    border: 6px solid var(--color-green);
+    border-color: var(--color-green) transparent var(--color-green) transparent;
+    animation: wg_dual_ring 1.2s linear infinite;
+  }
+  
+  @keyframes wg_dual_ring {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }

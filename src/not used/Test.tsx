@@ -1,11 +1,9 @@
 import React, { useRef,} from "react";
 import "../styles/test.css"
 
-import Test2 from "./Test2";
 
 export default function Test() {
 
-  console.log(Test2)
 
     function setStyle(e:React.ChangeEvent<HTMLSelectElement | HTMLInputElement>) {
 

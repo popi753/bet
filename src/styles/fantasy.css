@@ -1,0 +1,31 @@
+.fantasy-container {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 50px;
+}
+
+.fantasy-container>div:first-child {
+    width: 50%;
+}
+
+.fantasy-container>div:first-child td{
+    padding: 0px 0px 0px 2vw;
+}
+
+
+.delete-btn img{
+    width: 10px;
+}
+
+.fantasy-div{
+    display: none;
+}
+
+.shown {
+    display: block;
+}
+
+.fantasy-div img {
+    cursor: pointer;
+}

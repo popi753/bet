@@ -2,8 +2,8 @@
 import "../styles/card.css";
 
 type cardProps = {
-    name? : string,
-    logo? : string,
+    name : string,
+    logo : string,
 }
 
 export default function Card({logo,name}:cardProps) {

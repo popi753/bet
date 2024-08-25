@@ -1,23 +1,27 @@
-import { useState, createContext} from 'react'
+import { useState, createContext,} from 'react'
 import './App.css'
 
 import { BrowserRouter } from 'react-router-dom'
 
+import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
-import { onValidate}  from "./Components/fetch";
 
-
+import { onValidate } from './Components/fetch'
 
 import Index from "./Index"
 
-// type User = null | {
-//   name: string,
-// }
+const queryClient = new QueryClient()
 
 
 function App() {
 
- 
+
+
+
 
   const token = window.localStorage.getItem("token")
 
@@ -38,24 +42,24 @@ function App() {
 
 
 
-    console.log("fetched")
+    console.log("fetched token")
 
   }
 
 
-  return(
+  return (
     <>
-<UserContext.Provider value={[user, setUser, balance,setBalance]}>
-  
-        <BrowserRouter>
-        
-            <Index/>
-            
-        </BrowserRouter>
-  
-</UserContext.Provider>
+      <QueryClientProvider client={queryClient}>
+        <UserContext.Provider value={[user, setUser, balance, setBalance]}>
+          <BrowserRouter>
+            <Index />
+          </BrowserRouter>
+        </UserContext.Provider>
+        <ReactQueryDevtools initialIsOpen={false} />
+
+      </QueryClientProvider>
     </>
-  )
+  );
 
 }
 

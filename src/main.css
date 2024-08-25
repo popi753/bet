@@ -29,7 +29,7 @@ body {
 	line-height: 1;
 }
 ol, ul {
-	list-style: none;
+	/* list-style: none; */
 }
 blockquote, q {
 	quotes: none;
@@ -88,7 +88,6 @@ a:hover{
 
 
 
-
 @media (prefers-color-scheme: light) {
   :root {
     background-color: #ffffff;
@@ -108,4 +107,15 @@ a:hover{
    gray
   ); */
   opacity: 0.75;
+}
+
+
+
+
+#wg-api-basketball-standings{
+  margin: 50px;
+}
+
+.leaguestsx{
+  margin: 50px;
 }

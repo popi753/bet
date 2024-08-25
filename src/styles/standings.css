@@ -1,0 +1,158 @@
+.standings-container {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+
+:root {
+    --background-color: #222;
+    --background-color-header: #121212;
+    --color-green: #01d099;
+    --color-red: #f64e60;
+    --color-yellow: #ffa800;
+  }
+
+
+.standings-table {
+  font-family: "Raleway",
+     sans-serif;;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.standings-tbody{
+
+}
+
+.standings-row{
+    height: 3.5rem;
+    margin: 6px;
+    background-color: #222;
+    border-bottom: 2px solid #121212;
+}
+.standings-row:first-child{
+  padding-top: 2px;
+
+    background-color: #121212;
+}
+
+.standings-row>td{
+    padding: 0px 2vw;
+    letter-spacing: 0;
+    line-height: 12px;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 1.5vw;
+}
+
+.standings-row:first-child>td:first-child{
+    border-top-left-radius: 15px;
+}
+
+.standings-row:first-child>td:last-child{
+    border-top-right-radius: 15px;
+}
+
+.standings-row:last-child{
+    border-bottom: 15px;
+}
+
+.standings-row:last-child>td:first-child{
+    border-bottom-left-radius: 15px;
+}
+
+.standings-row:last-child>td:last-child{
+    border-bottom-right-radius: 15px;
+}
+
+
+.standings-row>.standings-rank{
+  padding: 0px 0px 0px 2vw;
+  
+}
+
+
+
+.standings-logo {
+  width: 2.5vw;
+  height: 2.5vw;
+  vertical-align: middle;
+}
+
+td:has(.standing-team-name){
+  text-align: left;
+}
+
+.standing-team-name:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.standings-forms{
+  max-height: 18px ;
+  overflow: hidden;
+}
+
+.wg_form {
+  display: inline-block;
+  margin: 1px;
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  font-size: 11px;
+  text-align: center;
+  position: relative;
+  color: #fff;
+}
+.wg_form_W {
+    
+  background: var(--color-green);
+}
+.wg_form_D {
+  background: var(--color-yellow);
+}
+.wg_form_L {
+  background: var(--color-red);
+}
+.info {
+  cursor: pointer;  
+  display: inline-block;
+  border-radius: 14px;
+  margin: 1px;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  font-size: 11px;
+  text-align: center;
+  position: relative;
+  background: var(--background-color-header);
+}
+
+.wg_loader:after {
+  content: " ";
+  display: block;
+  width: 45px;
+  height: 45px;
+  margin: auto;
+  border-radius: 50%;
+  border: 6px solid var(--color-green);
+  border-color: var(--color-green) transparent var(--color-green) transparent;
+  animation: wg_dual_ring 1.2s linear infinite;
+}
+
+@keyframes wg_dual_ring {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+
+
+
+
+

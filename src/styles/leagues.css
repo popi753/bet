@@ -46,3 +46,17 @@
     color: #1ee78d;
     letter-spacing: 1px;
 }
+
+
+.league-routes{
+    background-color: black;
+    border-radius: 15px;
+    border: 1px solid gray;
+    margin: 24px;
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.league-routes * {
+    color: white;
+}
