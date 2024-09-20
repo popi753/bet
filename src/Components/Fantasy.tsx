@@ -29,7 +29,6 @@ export default function Fantasy({id}: {id:number}) {
 
     const [user] = useContext<any>(UserContext)
 
-console.log(import.meta.env.VITE_BET)
     const fantasyRef = useRef<HTMLDivElement>(null!)
 
     const [rankings, setRankings] = useState<standing[]>([])
