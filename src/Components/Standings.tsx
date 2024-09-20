@@ -79,15 +79,13 @@ export default function Standings({id}: {id:number}) {
           >
             {data && (
               <table className="standings-table" id="wg-football-standings">
-                <thead></thead>
-                <tbody className="standings-tbody">
-                  {/* signs row */}
-                  <tr className="standings-row">
+                <thead>
+
+                <tr className="head-row">
                     <td
                       className="standings-rank"
                     >#</td>
                      <td
-                      className="standings-rank"
                       colSpan={2}
                     ></td>
                     <td
@@ -124,6 +122,10 @@ export default function Standings({id}: {id:number}) {
                     <td > Form</td>
                     <td ></td>
                   </tr>
+
+                </thead>
+                <tbody className="standings-tbody">
+                  
                   {data.map((item:any) => {
                     return (
                       <tr className="standings-row" key={item.team.id}>
@@ -138,7 +140,7 @@ export default function Standings({id}: {id:number}) {
                           </td>
                           <td >
 
-                        <span className="standing-team-name">{item.team.name}</span>
+                        <span className="standing-name">{item.team.name}</span>
                            
                           </td>
                         <td >

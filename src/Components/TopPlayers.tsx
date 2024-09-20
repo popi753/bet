@@ -35,14 +35,13 @@ export default function TopPlayers({id,endpoint}:topPlayersProps) {
             className={data? "" : "wg_loader"}
           >
             {data && (
-              <table className="topPlayers-table" id="wg-football-standings">
-                <thead></thead>
-                <tbody className="topPlayers-tbody">
-                  {/* signs row */}
-                  <tr className="topPlayers-row">
+              <table className="standings-table" id="wg-football-standings">
+                <thead>
+
+                <tr className="head-row">
                     <td
-                    title="rank"
-                      className="topPlayers-rank"
+                      title="rank"
+                      className="standings-rank"
                     >#</td>
                     <td
                       colSpan={1}
@@ -75,17 +74,21 @@ export default function TopPlayers({id,endpoint}:topPlayersProps) {
                     </td>
                     
                   </tr>
+
+                </thead>
+                <tbody className="standings-tbody">
+                  
                   
                   {data.map((player:any, index:number) => {
                     return (
-                      <tr className="topPlayers-row" key={player.id}>
-                        <td className="topPlayers-rank" >
+                      <tr className="standings-row" key={player.id}>
+                        <td className="standings-rank" >
                           {index+1}
                         </td>
                        
-                          <td className="topPlayer-name-td">
+                          <td className="relative">
                                     
-                            <span className="topPlayer-name" >{player.name}</span>
+                            <span className="standing-name" >{player.name}</span>
                             <span className="topPlayer-photo-tooltip">
                                 <img  src={player.photo}
                                     alt="Image" 

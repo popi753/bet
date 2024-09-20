@@ -63,6 +63,7 @@ table {
 
 
 body {
+  box-sizing: unset;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -84,8 +85,13 @@ a:hover{
   text-decoration: underline;
 }
 
+btn {
+  color: black;
+}
 
-
+.relative{
+  position: relative;
+}
 
 
 @media (prefers-color-scheme: light) {
@@ -110,12 +116,7 @@ a:hover{
 }
 
 
-
-
-#wg-api-basketball-standings{
-  margin: 50px;
-}
-
 .leaguestsx{
   margin: 50px;
 }
+

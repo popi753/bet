@@ -70,12 +70,9 @@
     
   }
   
-  .topPlayer-name-td{
-    position: relative;
-  }
 
 
-  .topPlayer-name{
+  .standing-name{
     margin-right: 20px;
     }
   
@@ -102,7 +99,7 @@
 
 
 
-.topPlayer-name:hover +.topPlayer-photo-tooltip{
+.standing-name:hover +.topPlayer-photo-tooltip{
     visibility: visible;
     opacity: 1;
     color:red

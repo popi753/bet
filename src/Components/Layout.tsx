@@ -3,6 +3,7 @@ import { UserContext } from "../App";
 import profile from "../assets/profile.svg";
 import {Outlet, Link} from "react-router-dom"
 
+import { onLogout } from "./fetch";
 
 import "../styles/layout.css"
 
@@ -52,9 +53,11 @@ export default function Layout({ children, dialogRef }: HeaderProps) {
                                             </li>
                                             <li>
                                                         <span
-                                                    onClick={()=>{
-                                                        window.localStorage.removeItem("token")
-                                                        setUser("")
+                                                    onClick={async ()=>{
+                                                        await onLogout()
+                                                        await window.localStorage.removeItem("token")
+                                                        await setUser("")
+                                                        window.location.reload()
                                                     }}
                                                     >Log out</span>
                                             </li>

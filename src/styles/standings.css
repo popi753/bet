@@ -24,19 +24,20 @@
 
 }
 
-.standings-row{
+.standings-row, .head-row{
     height: 3.5rem;
     margin: 6px;
     background-color: #222;
     border-bottom: 2px solid #121212;
 }
-.standings-row:first-child{
+
+.head-row{
   padding-top: 2px;
 
     background-color: #121212;
 }
 
-.standings-row>td{
+.standings-row>td, .head-row>td{
     padding: 0px 2vw;
     letter-spacing: 0;
     line-height: 12px;
@@ -45,11 +46,11 @@
     font-size: 1.5vw;
 }
 
-.standings-row:first-child>td:first-child{
+.head-row>td:first-child{
     border-top-left-radius: 15px;
 }
 
-.standings-row:first-child>td:last-child{
+.head-row>td:last-child{
     border-top-right-radius: 15px;
 }
 
@@ -79,11 +80,11 @@
   vertical-align: middle;
 }
 
-td:has(.standing-team-name){
+td:has(.standing-name){
   text-align: left;
 }
 
-.standing-team-name:hover{
+.standing-name:hover{
   cursor: pointer;
   text-decoration: underline;
 }

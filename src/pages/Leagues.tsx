@@ -1,7 +1,7 @@
 import { useParams, Routes, Route, Link } from "react-router-dom"
 
 import {onFetchLeague } from "../Components/fetch"
-import { useLayoutEffect, useState } from "react"
+import { useEffect, useState } from "react"
 
 import "../styles/leagues.css"
 
@@ -28,12 +28,13 @@ export default  function Leagues() {
       leagueId: number,
       name: string,
       logo: string
+      country : string
   }
   
   
   const [leagues, setLeagues] = useState<league[]>([]);
   
-  useLayoutEffect(()=>{
+  useEffect(()=>{
       onFetchLeague({
           setLeagues:setLeagues,
           id: params,
@@ -60,6 +61,7 @@ export default  function Leagues() {
             <div className="league-header-text">
               <h2>{leagues[0]?.name || "league name"}</h2>
               <h5>2024/2025</h5>
+              <h5>{leagues[0]?.country}</h5>
             </div>
           </div>
           <div className="league-header-links">

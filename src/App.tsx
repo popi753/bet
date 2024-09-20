@@ -20,31 +20,23 @@ const queryClient = new QueryClient()
 function App() {
 
 
-
-
-
   const token = window.localStorage.getItem("token")
-
-
 
 
   
   const [user, setUser] = useState<string>("")
   const [balance, setBalance] = useState<Number>(0)
+
   
-
-
-
+      
   if (!user && token){
-    // validate()
 
-  onValidate({token, setUser, setBalance})
-
-
+    onValidate({token, setUser, setBalance})
 
     console.log("fetched token")
 
   }
+     
 
 
   return (
@@ -67,7 +59,7 @@ type contextType = null | [
   user: string,
   setUser: React.Dispatch<React.SetStateAction<string>>,
   balance: Number,
-  setBalance: React.Dispatch<React.SetStateAction<Number>>
+  setBalance: React.Dispatch<React.SetStateAction<Number>>,
 ]
 
 export const UserContext = createContext<contextType>(null)

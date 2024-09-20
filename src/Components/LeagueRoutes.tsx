@@ -6,7 +6,7 @@ import React from "react"
 
 
 
-export default function Stats({links}:{links:string[]}) {
+export default function LeagueRoutes({links}:{links:string[]}) {
     
     function onClick(e:React.MouseEvent<HTMLDivElement, MouseEvent>) {
 

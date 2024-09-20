@@ -1,13 +1,12 @@
 .card{
 
-    max-width: 200px;
-    max-height: 300px;
-    aspect-ratio: 2/3;
+    height: 40vmin;
+    width: 30vmin;
     
     background-color: black;
     display: flex;
     
-    flex: 1 1 0;
+    /* flex: 1 1 0; */
     flex-flow: column wrap;
     text-align: center;
     justify-content: flex-start;
@@ -32,7 +31,13 @@
 
 .card-logo{
     width: 90%;
-    margin: 25px auto;
+    margin: 15% auto;
+}
+
+.card-logo>img{
+    width: 75%;
+    height: auto;
+
 }
 
 .card-name{

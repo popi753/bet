@@ -29,7 +29,7 @@ export async function onRegister({username,setUsername,password,setPassword,setU
         console.log(response.ok)
         if (!response.ok) {
             console.log("something went wrong")
-            throw("something went wrong")
+            
         }
         const result = await response.json();
 
@@ -86,7 +86,7 @@ export async function onLogin({username,setUsername,setUsernameError,password,se
         console.log(response.ok)
         if (!response.ok) {
             console.log("something went wrong")
-            throw("something went wrong")
+            
         }
         const result = await response.json();
 
@@ -124,7 +124,8 @@ type onValidateProps = {
     setBalance            : React.Dispatch<React.SetStateAction<Number>>,
 }
 
-export   async function onValidate({token, setUser, setBalance}:onValidateProps) {
+export async function onValidate({token, setUser, setBalance,}:onValidateProps) {
+  
     try {
       const response = await fetch(import.meta.env.VITE_AUTH+"validate",
         {
@@ -138,7 +139,7 @@ export   async function onValidate({token, setUser, setBalance}:onValidateProps)
       console.log(response.ok)
       if (!response.ok) {
         console.log("something went wrong")
-        throw("something went wrong")
+        
       }
 
 
@@ -167,11 +168,40 @@ export   async function onValidate({token, setUser, setBalance}:onValidateProps)
   }
 
 
+export async function onLogout() {
+  try {
+    const response = await fetch(import.meta.env.VITE_AUTH+"logout",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    console.log(response.ok)
+    if (!response.ok) {
+      console.log("something went wrong")
+      
+    }
+
+    const result = await response.json()
+    
+    console.log(result)
+    
+
+} catch (error) {
+  console.error("this is logout error:  "+error)
+  window.alert(error+"/try later")
+}
+}
+
+
 
 type league = {
   leagueId: number,
   name: string,
-  logo: string
+  logo: string,
+  country: string,
 }
 
 type onFetchLeagueProps = {
@@ -193,7 +223,7 @@ export async function onFetchLeague({setLeagues, id}:onFetchLeagueProps) {
       console.log(response.ok)
       if (!response.ok) {
         console.log("something went wrong")
-        throw("something went wrong")
+        
       }
 
       const result = await response.json()
@@ -268,11 +298,12 @@ export async function onFetchTeams(id:number) {
       console.log(response.ok)
       if (!response.ok) {
         console.log("something went wrong")
-        throw("something went wrong")
+        
       }
 
       const result = await response.json()
-      return(result.teams)
+      result.message && window.alert(result.message)
+      return(result)
       
 
   } catch (error) {
@@ -282,26 +313,35 @@ export async function onFetchTeams(id:number) {
 
 }
 
+type onSaveFantasyTeamsProps = {
+  rankings: { rank: number; id: number; name: string; logo: string; }[],
+  id: number, 
+}
 
 
-export async function onSaveFantasyTeams(standings: { rank: number; id: number; name: string; logo: string; }[], id: number) {
+export async function onSaveFantasyTeams({rankings:ranking,id:leagueId,}:onSaveFantasyTeamsProps) {
 
+  const token = window.localStorage.getItem("token")
 
   try {
-      const response = await fetch(import.meta.env.VITE_AUTH + "register", {
+      const response = await fetch(import.meta.env.VITE_BET + "fantasy", {
           method: "POST",
           headers: {
               "Content-Type": "application/json",
+              "authorization": "Bearer "+ token,
           },
-          body: JSON.stringify({id,standings}),
+          body: JSON.stringify({leagueId,ranking}),
       });
       console.log(response.ok)
       if (!response.ok) {
           console.log("something went wrong")
-          throw("something went wrong")
+          
       }
       const result = await response.json();
-      console.log(result);
+
+      console.log(result)
+      window.alert(result.message)
+      return result.message
 
   } catch (error) {
       window.alert(error + "/try later");
@@ -368,5 +408,7 @@ export async function onFetchStats({
     window.alert(error + "/try later");
   }
 }
+
+
   
 

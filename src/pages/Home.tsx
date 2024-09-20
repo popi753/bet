@@ -1,4 +1,4 @@
-import { useState, useLayoutEffect } from "react";
+import { useState, useEffect } from "react";
 import Card from "../Components/Card"
 import "../styles/home.css"
 import { Link } from "react-router-dom"
@@ -11,13 +11,14 @@ export default function Home() {
     type league = {
         leagueId: number,
         name: string,
-        logo: string
+        logo: string,
+        country: string
     }
     
     
     const [leagues, setLeagues] = useState<league[]>([]);
     
-    useLayoutEffect(()=>{
+    useEffect(()=>{
         onFetchLeague({
             setLeagues:setLeagues,
             id: 0,

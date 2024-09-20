@@ -1,4 +1,4 @@
-import { useState, useContext, useLayoutEffect } from "react";
+import { useState, useContext, useEffect } from "react";
 import "../styles/auth.css";
 import Input from "./Input";
 import cirxleX from "../assets/circle-xmark.svg";
@@ -28,7 +28,7 @@ export default function Auth({haveAcc, setHaveAcc, close }: authProps) {
 
 
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         setUsernameError(username.length < 8 ? "more than 8 characters": username.length > 20 ? "less than 20 characters" : "");
         setPasswordError(password.length < 8 ? "more than 8 characters" : "");
     },[haveAcc])
