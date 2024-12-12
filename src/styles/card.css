@@ -1,50 +1,46 @@
-.card{
+.card {
+  height: 40vmin;
+  width: 30vmin;
 
-    height: 40vmin;
-    width: 30vmin;
-    
-    background-color: black;
-    display: flex;
-    
-    /* flex: 1 1 0; */
-    flex-flow: column wrap;
-    text-align: center;
-    justify-content: flex-start;
-    position: relative;
+  background-color: black;
+  display: flex;
 
+  /* flex: 1 1 0; */
+  flex-flow: column wrap;
+  text-align: center;
+  justify-content: flex-start;
+  position: relative;
 }
 
-.card:hover>.card-logo{
-    filter: drop-shadow(2px 4px 50px blue);
-    cursor: pointer;
+.card:hover > .card-logo {
+  filter: drop-shadow(2px 4px 50px blue);
+  cursor: pointer;
 }
 
-.card:hover>.card-name{
-    bottom: 15px;
-    opacity: 1;
+.card:hover > .card-name {
+  bottom: 15px;
+  opacity: 1;
 }
 
-
-.card *{
-    color: white;
+.card * {
+  color: white;
 }
 
-.card-logo{
-    width: 90%;
-    margin: 15% auto;
+.card-logo {
+  width: 90%;
+  margin: 15% auto;
 }
 
-.card-logo>img{
-    width: 75%;
-    height: auto;
-
+.card-logo > img {
+  width: 75%;
+  height: auto;
 }
 
-.card-name{
-    transition: all 0.8s, transform 0.8s, opacity 0.5s;
-    position: absolute;
-    bottom: -40px;
-    opacity: 0;
-    right: 50%;
-    transform: translateX(50%);
+.card-name {
+  transition: all 0.8s, transform 0.8s, opacity 0.5s;
+  position: absolute;
+  bottom: -40px;
+  opacity: 0;
+  right: 50%;
+  transform: translateX(50%);
 }

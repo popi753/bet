@@ -1,62 +1,97 @@
-.league-header{
-    background-color: black;
-    border-radius: 15px;
-    border: 1px solid gray;
-    margin: 24px;
-    display: flex;
-    flex-flow: column wrap;
+.league-header {
+  background-color: black;
+  border-radius: 15px;
+  border: 1px solid gray;
+  margin: 24px;
+  display: flex;
+  flex-flow: column wrap;
 }
 
-.league-header-content{
-    display: flex;
-    flex-flow: row wrap;
-    border-bottom: 1px solid gray;
+.league-header-content {
+  display: flex;
+  flex-flow: row wrap;
+  border-bottom: 1px solid gray;
 }
 
-
-.league-header .card-logo{
-    width: auto;
-    height: 82%;
-    margin: 25px;
+.league-header .card-logo {
+  width: auto;
+  height: 82%;
+  margin: 25px;
 }
 
-.league-header *{
-    color: white;
+.league-header * {
+  color: white;
 }
 
-.league-header-links{
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-    margin: 0px;
-    border-top: 1px solid gray;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
+.league-header-links {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  margin: 0px;
+  border-top: 1px solid gray;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 
-.league-header-link{
-    transition: all 0.3s ease;
+.league-header-link {
+  transition: all 0.3s ease;
 }
 
-.league-header-link:hover{
-    scale:1.1
+.league-header-link:hover {
+  scale: 1.1;
 }
 
-.league-header-link *{
-    color: #007d45;
-    letter-spacing: 1px;
+.league-header-link * {
+  color: #007d45;
+  letter-spacing: 1px;
 }
 
-
-.league-routes{
-    background-color: black;
-    border-radius: 15px;
-    border: 1px solid gray;
-    margin: 24px;
-    display: flex;
-    flex-flow: column wrap;
+.league-routes {
+  background-color: black;
+  border-radius: 15px;
+  border: 1px solid gray;
+  margin: 24px;
+  display: flex;
+  flex-flow: column wrap;
 }
 
 .league-routes * {
-    color: white;
+  color: white;
+}
+
+.stats-container {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.stats-table {
+  font-family: "Raleway", sans-serif;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.wg_loader:after {
+  content: " ";
+  display: block;
+  width: 45px;
+  height: 45px;
+  margin: auto;
+  border-radius: 50%;
+  border: 6px solid var(--color-green);
+  border-color: var(--color-green) transparent var(--color-green) transparent;
+  animation: wg_dual_ring 1.2s linear infinite;
+}
+
+@keyframes wg_dual_ring {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.error {
+  align-self: center;
 }

@@ -16,7 +16,7 @@ import { UserContext } from './App';
 
 function Index() {
 
-    const [user, _setUser] = useContext<any>(UserContext)
+    const [user, setUser] = useContext<any>(UserContext)
 
     const [render, setRender] = useState<boolean>(false)
 

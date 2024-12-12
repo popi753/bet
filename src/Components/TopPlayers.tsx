@@ -1,51 +1,50 @@
 import "../styles/topPlayers.css"
-import { useQuery,} from "@tanstack/react-query"
+import { useQuery, } from "@tanstack/react-query"
 
-import { onFetchStats } from "./fetch"
+import { onFetchStats, type topPlayer} from "../fetch/leagues"
+
+
 
 type topPlayersProps = {
-    id : number,
-    endpoint: string
+  leagueId: number,
+  endpoint: string
 }
 
 
-export default function TopPlayers({id,endpoint}:topPlayersProps) {
-
-    
+export default function TopPlayers({ leagueId, endpoint }: topPlayersProps) {
 
 
 
-
-    const {data} = useQuery({
-                queryKey: [endpoint+id], 
-                queryFn: ()=>onFetchStats({
-                        league: id,
-                        endpoint: endpoint
-            }), 
-                staleTime: 1000*60*5,
-})
+  const { data, isError, isLoading } = useQuery<topPlayer[]>({
+    queryKey: [endpoint + leagueId],
+    queryFn: () => onFetchStats(
+      leagueId,
+      endpoint),
+    staleTime: 1000 * 60 * 5,
+  })
 
 
 
-    
 
-    return(
-            <div className="topPlayers-container">
-                 <div
-            className={data? "" : "wg_loader"}
-          >
-            {data && (
-              <table className="standings-table" id="wg-football-standings">
+  return (
+    <div className="stats-container">
+
+      {isError ? <div className="error">no information try later</div> :
+        isLoading ?
+          <div className="wg_loader"></div> :
+          data ?
+            <div>
+              <table className="stats-table" id="wg-football-standings">
                 <thead>
 
-                <tr className="head-row">
+                  <tr className="head-row">
                     <td
                       title="rank"
                       className="standings-rank"
                     >#</td>
                     <td
-                      colSpan={1}
-                    
+                      colSpan={2}
+
                     ></td>
                     <td
                       title="Minutes Played"
@@ -55,7 +54,7 @@ export default function TopPlayers({id,endpoint}:topPlayersProps) {
                     <td
                       title="Lineups"
                     >
-                     LN
+                      LN
                     </td>
                     <td
                       title="Substituted in"
@@ -72,29 +71,35 @@ export default function TopPlayers({id,endpoint}:topPlayersProps) {
                     >
                       A
                     </td>
-                    
+
                   </tr>
 
                 </thead>
-                <tbody className="standings-tbody">
-                  
-                  
-                  {data.map((player:any, index:number) => {
+                <tbody >
+
+
+                  {data.map((player: any, index: number) => {
                     return (
                       <tr className="standings-row" key={player.id}>
                         <td className="standings-rank" >
-                          {index+1}
+                          {index + 1}
                         </td>
-                       
-                          <td className="relative">
-                                    
-                            <span className="standing-name" >{player.name}</span>
-                            <span className="topPlayer-photo-tooltip">
-                                <img  src={player.photo}
-                                    alt="Image" 
-                                    />
-                                  </span>
-                          </td>
+                        <td >
+
+                          <img className="standings-logo"
+                            src={player.teamLogo} loading="lazy"
+                          />
+                        </td>
+
+                        <td className="relative">
+
+                          <span className="standing-name" >{player.name}</span>
+                          <span className="topPlayer-photo-tooltip">
+                            <img src={player.photo}
+                              alt="Image"
+                            />
+                          </span>
+                        </td>
                         <td >
                           {player.minutes}
                         </td>
@@ -110,16 +115,18 @@ export default function TopPlayers({id,endpoint}:topPlayersProps) {
                         <td >
                           {player.assists}
                         </td>
-                        
+
                       </tr>
                     );
                   })}
                 </tbody>
               </table>
-            )}
-          </div>
-                    
-                    
+
             </div>
-    )
+            : <div>something went wrong</div>
+      }
+
+
+    </div>
+  )
 }

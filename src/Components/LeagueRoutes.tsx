@@ -28,7 +28,7 @@ export default function LeagueRoutes({links}:{links:string[]}) {
             return(
               <div className="league-routes-link" key={link}>
                           <Link to={link}>
-                            <h4 >{link}</h4>
+                            <span >{link}</span>
                           </Link>
                         </div>
             )

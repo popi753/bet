@@ -1,4 +1,4 @@
-import { useState, createContext,} from 'react'
+import { useState,useEffect, createContext,} from 'react'
 import './App.css'
 
 import { BrowserRouter } from 'react-router-dom'
@@ -10,7 +10,7 @@ import {
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 
-import { onValidate } from './Components/fetch'
+import { onValidate } from './fetch/auth'
 
 import Index from "./Index"
 
@@ -22,20 +22,25 @@ function App() {
 
   const token = window.localStorage.getItem("token")
 
-
+  
   
   const [user, setUser] = useState<string>("")
   const [balance, setBalance] = useState<Number>(0)
 
+  useEffect(() => {
+    console.log("validate effect")
+    if (!user && token){
+
+      onValidate({token, setUser, setBalance})
+  
+      console.log("fetched token")
+  
+    }
+  
+  }, [user, token])
   
       
-  if (!user && token){
-
-    onValidate({token, setUser, setBalance})
-
-    console.log("fetched token")
-
-  }
+  
      
 
 

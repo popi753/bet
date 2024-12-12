@@ -6,7 +6,7 @@ import eye from "../assets/eye.svg";
 import eyeSlash from "../assets/eyeSlash.svg";
 
 
-import { onRegister, onLogin }  from "./fetch";
+import { onRegister, onLogin }  from "../fetch/auth";
 
 import { UserContext } from "../App";
 
@@ -33,9 +33,7 @@ export default function Auth({haveAcc, setHaveAcc, close }: authProps) {
         setPasswordError(password.length < 8 ? "more than 8 characters" : "");
     },[haveAcc])
 
-    //lorem + tab
-    // Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque modi sed, consectetur, temporibus id cupiditate at excepturi eaque minus voluptatibus in, ab eos incidunt. Iusto possimus sapiente animi blanditiis dolore!
-    // @ts-ignore
+
 
     const [user,setUser] = useContext<any>(UserContext)
 

@@ -3,7 +3,7 @@ import Card from "../Components/Card"
 import "../styles/home.css"
 import { Link } from "react-router-dom"
 
-import { onFetchLeague}  from "../Components/fetch";
+import { onFetchLeague}  from "../fetch/leagues";
 
 
 export default function Home() {

@@ -1,0 +1,31 @@
+.roundName {
+  height: 2rem;
+  padding: 0.3rem;
+  font-size: 1.8vw;
+  background-color: #121212;
+  color: #fff;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.fixtureDate{
+  width: 10%;
+}
+
+.fixtureDateSpan {
+  text-align: center;
+  display: block;
+}
+
+
+.homeName {
+  text-align: right !important;
+}
+
+.awayName {
+  text-align: left !important;
+}
+
+.score {
+  width: 3vw;
+}

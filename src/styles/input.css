@@ -1,23 +1,19 @@
-input{background: transparent;
-    border: 1px solid #fff;
-    border-radius: 15px;
-    color: #fff;
-    font-size: 1em;
-    height: 35px;
-    outline: none;
-    padding-left: 20px;
-    width: 210px;
+input {
+  background: transparent;
+  border: 1px solid #fff;
+  border-radius: 15px;
+  color: #fff;
+  font-size: 1em;
+  height: 35px;
+  outline: none;
+  padding-left: 20px;
+  width: 210px;
 }
 
-.eye{
-    position: absolute;
-    bottom: 10px;
-    right: 6px;
-    height: 25px;
-    width: 30px;
+.eye {
+  position: absolute;
+  bottom: 10px;
+  right: 6px;
+  height: 25px;
+  width: 30px;
 }
-
-
-
-
-

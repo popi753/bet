@@ -1,15 +1,22 @@
 import { useParams, Routes, Route, Link } from "react-router-dom"
 
-import {onFetchLeague } from "../Components/fetch"
+import {onFetchLeague } from "../fetch/leagues"
 import { useEffect, useState } from "react"
 
 import "../styles/leagues.css"
 
 import Standings from "../Components/Standings"
+
+import Fixtures from "../Components/Fixtures"
+
 import TopPlayers from "../Components/TopPlayers"
-import Redirect from "../Components/redirect"
+
 import LeagueRoutes from "../Components/LeagueRoutes"
+
 import Fantasy from "../Components/Fantasy"
+
+import Redirect from "../Components/redirect"
+
 
 
 
@@ -61,9 +68,10 @@ export default  function Leagues() {
             <div className="league-header-text">
               <h2>{leagues[0]?.name || "league name"}</h2>
               <h5>2024/2025</h5>
-              <h5>{leagues[0]?.country}</h5>
+              <h5>{"flag"+ leagues[0]?.country}</h5>
             </div>
           </div>
+          
           <div className="league-header-links">
             <div className="league-header-link">
               <Link to={"./stats"}>
@@ -76,9 +84,7 @@ export default  function Leagues() {
               </Link>
             </div>
             <div className="league-header-link">
-              {/* <Link to={"./topassists"}>
-                <h4>topassists</h4>
-              </Link> */}
+             
             </div>
           </div>
         </div>
@@ -88,13 +94,15 @@ export default  function Leagues() {
           <Routes>
             <Route index element={null} />
 
-            <Route path="/stats/*" element={<LeagueRoutes links={["standings", "topscorers", "topassists"]}/>}>
-                    <Route index              element={<Standings id={params} />} />
-                    <Route path="standings"   element={<Standings id={params} />} />
-                    <Route path="topscorers"  element={<TopPlayers id={params}  endpoint="topscorers"/>} />
-                    <Route path="topassists"  element={<TopPlayers id={params}  endpoint="topassists"/>} />
+            <Route path="/stats/*" element={<LeagueRoutes links={["standings","results","fixtures", "topscorers", "topassists"]}/>}>
+                    <Route index              element={<Standings       leagueId={params} />} />
+                    <Route path="standings"   element={<Standings       leagueId={params} />} />
+                    <Route path="fixtures"    element={<Fixtures        leagueId={params}        endpoint="fixtures"/>} />
+                    <Route path="results"     element={<Fixtures        leagueId={params}        endpoint="results"/>} />
+                    <Route path="topscorers"  element={<TopPlayers      leagueId={params}        endpoint="topscorers"/>} />
+                    <Route path="topassists"  element={<TopPlayers      leagueId={params}        endpoint="topassists"/>} />
             </Route>
-            <Route path="/fantasy" element={<Fantasy id={params}/>}>
+            <Route path="/fantasy" element={<Fantasy leagueId={params}/>}>
                         
             </Route>
 

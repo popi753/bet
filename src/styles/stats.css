@@ -3,10 +3,21 @@
     flex-flow: row wrap;
     justify-content: space-around;
     margin: 0px;
+    font-size: 1.8vw;
 }
 
 .league-routes-link{
     transition: all 0.3s ease;
+}
+
+.league-routes-link span{
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;
+    font-size: 1.5vw;
+    font-weight: bold;
 }
 
 .league-routes-link:hover{

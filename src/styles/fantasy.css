@@ -1,54 +1,54 @@
 .fantasy-container {
-    width: 100%;
-    display: flex;
-    flex-flow: column wrap;
-    align-items: center;
-    gap: 50px;
+  width: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  gap: 50px;
 }
 
-.fantasy-container>div:first-child {
-    width: 100%;
-    display: flex;
-    flex-flow: row wrap;
+.fantasy-container > div:first-child {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
 }
 
-.fantasy-container>div:first-child>div:first-child {
-    width: 50%;
+.fantasy-container > div:first-child > div:first-child {
+  width: 50%;
 }
 
-.fantasy-container>div:first-child>div:first-child td{
-    padding: 0px 0px 0px 2vw;
+.fantasy-container > div:first-child > div:first-child > table {
+  width: 99%;
 }
 
-
-.delete-btn img{
-    width: 10px;
+.fantasy-container > div:first-child > div:first-child td {
+  padding: 0px 0px 0px 2vw;
 }
 
-.fantasy-div{
-    display: none;
-    /* overflow: hidden; */
+.delete-btn img {
+  width: 10px;
+}
+
+.fantasy-div {
+  display: none;
+  /* overflow: hidden; */
 }
 
 .shown {
-    display: flex;
-    flex-flow: column wrap;
-    position: sticky;
-    top: -3%;
-    z-index: 9;
+  display: flex;
+  flex-flow: column wrap;
+  position: sticky;
+  top: -3%;
+  z-index: 9;
 
-    max-height: 92.1vh;
-    overflow-y: scroll;
+  max-height: 92.1vh;
+  overflow-y: scroll;
 }
 
 .fantasy-div img {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-
-
-.fantasy-save-btn{
-    color: black;
+.fantasy-save-btn {
+  color: black;
 }
-
-

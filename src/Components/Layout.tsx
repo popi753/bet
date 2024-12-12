@@ -3,7 +3,7 @@ import { UserContext } from "../App";
 import profile from "../assets/profile.svg";
 import {Outlet, Link} from "react-router-dom"
 
-import { onLogout } from "./fetch";
+import { onLogout } from "../fetch/auth";
 
 import "../styles/layout.css"
 
