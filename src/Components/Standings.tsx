@@ -13,7 +13,7 @@ export default function Standings({ leagueId }: { leagueId: number }) {
 
 
 
-  const { data, isError, isLoading, ...rest } = useQuery<standing[]>({
+  const { data, isError, isLoading} = useQuery<standing[]>({
     queryKey: ["standings" + leagueId],
     queryFn: () => onFetchLeagueStandings(leagueId),
     staleTime: 1000 * 60 * 5,

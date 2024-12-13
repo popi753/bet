@@ -12,14 +12,6 @@ import { useEffect, useRef, useState, useContext } from "react";
 
 
 
-// betting tips (baloteli yellow, espanetis mmeti dartyma) calke page
-
-//shemdegshi root-dan daiwye responsive font-sizet +h1,2,3,4,5,6
-
-//always make loading and error pages for everything for every request
-
-//fantasy createdAt and updatedAt is wrong not working for each league creation and update
-
 
 export default function Fantasy({ leagueId }: { leagueId: number }) {
   const [user] = useContext<any>(UserContext);

@@ -17,7 +17,7 @@ export default function Fixtures({ leagueId, endpoint }: { leagueId: number, end
 
   const queryClient = useQueryClient();
 
-  const { data, isLoading, isError, ...rest } = useQuery<round[]>({
+  const { data, isLoading, isError} = useQuery<round[]>({
     queryKey: [endpoint + leagueId],
     queryFn: () =>
       onFetchFixtures({ league: leagueId, endpoint: endpoint, queryClient: queryClient, }),

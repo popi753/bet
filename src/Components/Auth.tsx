@@ -17,10 +17,7 @@ type authProps = {
     close       : () => void;
 };
 
-// type contextType = null | [
-//     user: string,
-//     setUser: React.Dispatch<React.SetStateAction<string>>
-//   ]
+
 
 export default function Auth({haveAcc, setHaveAcc, close }: authProps) {
 
@@ -35,7 +32,7 @@ export default function Auth({haveAcc, setHaveAcc, close }: authProps) {
 
 
 
-    const [user,setUser] = useContext<any>(UserContext)
+    const [_user,setUser] = useContext<any>(UserContext)
 
 
     const [username, setUsername] = useState<string>("");
