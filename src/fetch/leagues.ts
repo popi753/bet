@@ -1,4 +1,5 @@
 import React from "react";
+import Leaderboard from "../Components/Leaderboard";
 
 
 type league = {
@@ -211,6 +212,7 @@ export async function onFetchLeagueStandings(league:number): Promise<standing[]>
         throw result.errors.requests
     }
 
+    
     
     return(result.response[0].league.standings[0].map((item:any)=>{
       return({
@@ -474,3 +476,46 @@ export async function onFetchFixtures({league,endpoint,queryClient}:onFetchFixtu
 
 }
 
+
+export type leaderboard = {
+  username : string,
+  points : number,
+}
+
+
+
+
+export async function onFetchLeaderboard(leagueId:number): Promise<leaderboard[]> {
+  
+
+  try {
+    
+      const response = await fetch(import.meta.env.VITE_LEAGUES+"leaderboard/"+leagueId,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      console.log(response.ok)
+      if (!response.ok) {
+        console.log("something went wrong")
+        throw "something went wrong";
+      }
+      const result = await response.json()
+
+
+
+      return(result)
+
+
+      
+
+  } catch (error: any) {
+    console.error("this is error:  ", error);
+    window.alert(error + "/try later");
+    throw new Error(error)
+  }
+
+}

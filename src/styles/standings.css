@@ -1,16 +1,7 @@
-:root {
-    --background-color: #222;
-    --background-color-header: #121212;
-    --color-green: #01d099;
-    --color-red: #f64e60;
-    --color-yellow: #ffa800;
-  }
 
-  .head-row{
-    height: 3.3rem;
+.head-row{
+    height: clamp(25px, 3em, 40px);
     margin: 6px;
-    background-color: #222;
-    padding-top: 2px;
     background-color: #121212;
 }
 
@@ -23,21 +14,23 @@
   border-top-right-radius: 15px;
 } */
 
+
+
 .standings-row{
-    height: 3.5rem;
+    height: clamp(20px, 3em, 40px);
     margin: 6px;
     background-color: #222;
-    border-bottom: 2px solid #121212;
+    border-top: 2px solid #121212;
 }
 
 
 .standings-row>td, .head-row>td{
     padding: 0px 2vw;
     letter-spacing: 0;
-    line-height: 12px;
+    /* line-height: 12px; */
     vertical-align: middle;
     text-align: center;
-    font-size: 1.5vw;
+    font-size: clamp(8px, 0.9em, 15px);
 }
 
 
@@ -72,10 +65,25 @@ td:has(.standing-name){
   text-decoration: underline;
 }
 
-.standings-forms{
-  max-height: 18px ;
+td:has(.standing-form){
+  position: relative;
+}
+
+.standing-form{
+  display: inline-block;
+  max-height: 18px;
   overflow: hidden;
 }
+
+
+.standing-form:hover{
+  width: 100px;
+  position: absolute;
+  z-index: 2;
+  top: calc((3em - 18px) / 2);
+  left: 2vw;
+}
+
 
 .wg_form {
   display: inline-block;
@@ -88,15 +96,15 @@ td:has(.standing-name){
   position: relative;
   color: #fff;
 }
+
 .wg_form_W {
-    
-  background: var(--color-green);
+  background-color: #01d099;
 }
 .wg_form_D {
-  background: var(--color-yellow);
+  background-color: #f64e60
 }
 .wg_form_L {
-  background: var(--color-red);
+  background-color: #ffa800;
 }
 
 .info{
@@ -114,7 +122,7 @@ width: 10%;
   font-size: 11px;
   text-align: center;
   position: relative;
-  background: var(--background-color-header);
+  background-color: #121212;
 }
 
 

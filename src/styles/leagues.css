@@ -37,6 +37,8 @@
   transition: all 0.3s ease;
 }
 
+
+
 .league-header-link:hover {
   scale: 1.1;
 }
@@ -77,8 +79,8 @@
   height: 45px;
   margin: auto;
   border-radius: 50%;
-  border: 6px solid var(--color-green);
-  border-color: var(--color-green) transparent var(--color-green) transparent;
+  border: 6px solid #01d099;
+  border-color: #01d099 transparent #01d099 transparent;
   animation: wg_dual_ring 1.2s linear infinite;
 }
 

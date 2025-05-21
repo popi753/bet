@@ -15,6 +15,8 @@ import LeagueRoutes from "../Components/LeagueRoutes"
 
 import Fantasy from "../Components/Fantasy"
 
+import Leaderboard from "../Components/Leaderboard"
+
 import Redirect from "../Components/redirect"
 
 
@@ -75,16 +77,18 @@ export default  function Leagues() {
           <div className="league-header-links">
             <div className="league-header-link">
               <Link to={"./stats"}>
-                <h4>stats</h4>
+                <h4>Stats</h4>
               </Link>
             </div>
             <div className="league-header-link">
               <Link to={"./fantasy"}>
-                <h4>fantasy</h4>
+                <h4>Fantasy</h4>
               </Link>
             </div>
             <div className="league-header-link">
-             
+              <Link to={"./Leaderboard"}>
+                <h4>Leaderboard</h4>
+              </Link>
             </div>
           </div>
         </div>
@@ -102,11 +106,15 @@ export default  function Leagues() {
                     <Route path="topscorers"  element={<TopPlayers      leagueId={params}        endpoint="topscorers"/>} />
                     <Route path="topassists"  element={<TopPlayers      leagueId={params}        endpoint="topassists"/>} />
             </Route>
-            <Route path="/fantasy" element={<Fantasy leagueId={params}/>}>
+            <Route path="/fantasy" element={<Fantasy                    leagueId={params}/>}>
                         
             </Route>
 
-            <Route path="*" element={<Redirect />} />
+            <Route path="/Leaderboard" element={<Leaderboard            leagueId={params}/>}>
+                        
+            </Route> 
+
+             <Route path="*" element={<Redirect />} />
           </Routes>
         </div>
       </>

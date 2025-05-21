@@ -237,7 +237,7 @@ export default function Fantasy({ leagueId }: { leagueId: number }) {
           <div>
             <div>
               {rankings.length ? (
-                <table className="standings-table">
+                <table className="fantasy-table">
                   <thead>
                     <tr className="head-row">
                       <td className="standings-rank">#</td>

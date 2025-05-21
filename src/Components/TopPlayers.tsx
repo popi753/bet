@@ -100,6 +100,7 @@ export default function TopPlayers({ leagueId, endpoint }: topPlayersProps) {
                             />
                           </span>
                         </td>
+                        
                         <td >
                           {player.minutes}
                         </td>

@@ -1,4 +1,3 @@
-
 import { onFetchLeagueStandings, type standing } from "../fetch/leagues";
 
 import { useQuery } from "@tanstack/react-query"
@@ -9,10 +8,10 @@ import "../styles/standings.css";
 
 
 
+
 export default function Standings({ leagueId }: { leagueId: number }) {
 
-
-
+  
   const { data, isError, isLoading} = useQuery<standing[]>({
     queryKey: ["standings" + leagueId],
     queryFn: () => onFetchLeagueStandings(leagueId),
@@ -25,7 +24,7 @@ export default function Standings({ leagueId }: { leagueId: number }) {
     refetchOnWindowFocus : false
   })
 
-
+  
 
   return (
 
@@ -122,7 +121,7 @@ export default function Standings({ leagueId }: { leagueId: number }) {
                           </td>
                           <td >{item.points}</td>
                           <td >
-                            <div className="standings-forms">
+                            <div className="standing-form">
 
                               {item.form?.split("").map((letter: string, index: number) => {
                                 return (
