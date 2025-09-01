@@ -38,10 +38,10 @@
   display: flex;
   flex-flow: column wrap;
   position: sticky;
-  top: -3%;
+  top: 0%;
   z-index: 9;
 
-  max-height: 92.1vh;
+  max-height: 99vh;
   overflow-y: scroll;
 }
 

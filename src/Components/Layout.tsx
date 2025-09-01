@@ -43,7 +43,7 @@ export default function Layout({ dialogRef }: HeaderProps) {
                         </div>
                     </Link>
                     <button 
-                    onClick={(e)=>{console.log(e.currentTarget.parentNode?.lastElementChild?.lastElementChild?.removeAttribute("open"))}}
+                    onClick={(e)=>{console.log("clicked")}}
                     >
                         click me
                     </button>

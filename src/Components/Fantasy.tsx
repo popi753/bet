@@ -57,22 +57,7 @@ export default function Fantasy({ leagueId }: { leagueId: number }) {
                                                               }
                                                               : ranking;
         
-         
-          // return selectedRank
-          //                     ?     ranking.rank == selectedRank
-          //                                                         ? {
-          //                                                               ...team,
-          //                                                               description: ranking.description,
-          //                                                               rank: selectedRank,
-          //                                                             }
-          //                                                             : ranking
-          //                     : index == rankings.findIndex((element) => element.id == 0)
-          //                                                     ? {
-          //                                                       ...team,
-          //                                                       description: ranking.description,
-          //                                                       rank: index + 1,
-          //                                                     }
-          //                                                     : ranking;
+        
         })
       );
     }
@@ -306,9 +291,7 @@ export default function Fantasy({ leagueId }: { leagueId: number }) {
             {teams?.length ? (
               <div className="fantasy-div" ref={fantasyRef}>
                 <table className="fantasy-table">
-                  {/* <colgroup>
-                                                  <col style={{"overflowY":"scroll"}}/>
-                                                </colgroup> */}
+         
                   <thead>
                     <tr className="head-row">
                       <td></td>
