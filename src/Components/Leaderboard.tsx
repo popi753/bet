@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { onFetchLeaderboard, type leaderboard} from "../fetch/leagues";
 
 import { useQuery } from "@tanstack/react-query";

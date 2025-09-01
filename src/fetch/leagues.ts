@@ -1,5 +1,4 @@
 import React from "react";
-import Leaderboard from "../Components/Leaderboard";
 
 
 type league = {
